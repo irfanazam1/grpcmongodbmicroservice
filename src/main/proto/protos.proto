@@ -1,0 +1,43 @@
+syntax = "proto3";
+package grpc.demo;
+
+service EmployeeService {
+  rpc findEmployeeById(FindByIdRequest) returns (FindEmployeeResponse);
+  rpc findEmployeeByDepartmentId(FindByIdRequest) returns (FindEmployeeResponse);
+  rpc findAllEmployees(Empty) returns (FindEmployeeResponse);
+  rpc findAllDepartments(Empty) returns (FindDepartmentResponse);
+  rpc findEmployeeByName(FindByNameRequest) returns (FindEmployeeResponse);
+  rpc findDepartmentByName(FindByNameRequest) returns (FindDepartmentResponse);
+}
+
+message Empty {
+}
+
+message FindByIdRequest{
+  string guid = 1;
+}
+
+message FindByNameRequest{
+  string name = 1;
+}
+
+message FindEmployeeResponse{
+  repeated Employee employee = 1;
+}
+
+message FindDepartmentResponse{
+  repeated Department department = 1;
+}
+
+message Employee {
+  string guid = 1;
+  string name = 2;
+  string address = 3;
+  Department department = 4;
+}
+
+message Department {
+  string guid = 1;
+  string name = 2;
+  string description = 3;
+}

@@ -1,0 +1,21 @@
+type Query {
+  findEmployeeById(guid: ID): Employee
+  findEmployeeByDepartment(department:String): [Employee]
+  findAllEmployees: [Employee]
+  findAllDepartments: [Department]
+  findEmployeeByName(name:String): Employee
+  findDepartmentByName(name:String): Department
+}
+
+type Employee {
+  guid: ID
+  name: String
+  address: String
+  department: Department
+}
+
+type Department {
+  guid: ID
+  name: String
+  description: String
+}
