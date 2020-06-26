@@ -767,7 +767,6 @@ public class DatabaseRepository {
         employeeList.add(employee);
         addEmployees(employeeList);
 
-        findAllEmployees();
     }
 }
 
