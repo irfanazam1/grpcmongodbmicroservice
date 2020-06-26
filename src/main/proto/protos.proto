@@ -1,6 +1,7 @@
 syntax = "proto3";
 package grpc.demo;
-
+//This structure defines the gRPC service
+//Generally there should be Request and Response objects defined to encapsulate complex structure.
 service EmployeeService {
   rpc findEmployeeById(FindByIdRequest) returns (FindEmployeeResponse);
   rpc findEmployeeByDepartmentId(FindByIdRequest) returns (FindEmployeeResponse);
@@ -10,25 +11,31 @@ service EmployeeService {
   rpc findDepartmentByName(FindByNameRequest) returns (FindDepartmentResponse);
 }
 
+//This structure is used to pass an empty request for functions like getAllEmployees
 message Empty {
 }
 
+//Request structure to call a service which returns data by id.
 message FindByIdRequest{
   string guid = 1;
 }
 
+//Request structure to call service which returns data by name.
 message FindByNameRequest{
   string name = 1;
 }
 
+//Response structure to return employee protobuf data as a List
 message FindEmployeeResponse{
   repeated Employee employee = 1;
 }
 
+//Response structure to return department protobuf data as a List
 message FindDepartmentResponse{
   repeated Department department = 1;
 }
 
+//Employee protobuf definition
 message Employee {
   string guid = 1;
   string name = 2;
@@ -36,6 +43,7 @@ message Employee {
   Department department = 4;
 }
 
+//Department protobuf defintion
 message Department {
   string guid = 1;
   string name = 2;

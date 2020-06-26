@@ -16,6 +16,10 @@ import java.util.List;
 @Component
 public class DatabaseRepository {
 
+    /**
+     * Setting up the Springboot Mongodb starter and setting up the properties as defined in the application.properties
+     * will auto define the MongoTemplate bean, which can be used to query the database.
+     */
     @Autowired
     private MongoTemplate mongoTemplate;
 

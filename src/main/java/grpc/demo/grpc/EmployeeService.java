@@ -90,6 +90,4 @@ public class EmployeeService extends EmployeeServiceGrpc.EmployeeServiceImplBase
             responseObserver.onError(e);
         }
     }
-
-
 }
